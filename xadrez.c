@@ -4,6 +4,30 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+void recursivoMovimentoTorre(int casas) {
+	if(casas > 0) {
+		printf("Direita\n");
+		recursivoMovimentoTorre(casas - 1);
+	}
+}
+
+void recursivoMovimentoRainha(int casas) {
+	if (casas > 0) {
+		printf("Esquerda\n");
+		recursivoMovimentoRainha(casas - 1);
+	}
+}
+
+void recursivoMovimentoBispo(int casas) {
+	if (casas > 0) {
+		printf("Cima\n");
+		if (casas > 0) {
+			printf("Direita\n");
+		}
+		recursivoMovimentoBispo(casas - 1);
+	}
+}
+
 int main() {
     // Nível Novato - Movimentação das Peças
     int movimentoTorre = 0, movimentoDama = 0, movimentoBispo, movimentoCavaloHor, movimentoCavaloVert;
@@ -40,9 +64,12 @@ int main() {
         printf("Esquerda\n");
     }
     // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
+    printf("\nTorre:\n")
+    recursivoMovimentoTorre(5);
+    printf("\nRainha:\n");
+    recursivoMovimentoRainha(8);
+    printf("\nBispo:\n");
+    recursivoMovimentoBispo(5);
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
 
